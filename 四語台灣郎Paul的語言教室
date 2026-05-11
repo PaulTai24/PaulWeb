@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul | Logic & Language - 法文與英文教學</title>
+    <style>
+        :root {
+            --primary-blue: #1a365d;
+            --accent-gold: #c0a080;
+            --text-dark: #2d3748;
+            --light-bg: #f7fafc;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, "Microsoft JhengHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 2rem;
+        }
+
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            background: var(--accent-gold);
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            border-left: 5px solid var(--accent-gold);
+            padding-left: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Paul's Logic & Language</h1>
+    <p>IT 技術背景 × 法文 C1 實戰 × 系統化語言教學</p>
+    <div class="badge-container">
+        <span class="badge">DALF C1</span>
+        <span class="badge">TOEIC 945</span>
+        <span class="badge">Technical Interpreter</span>
+    </div>
+</header>
+
+<div class="container">
+    
+    <section id="about">
+        <h2>關於我：理性腦的感性實踐</h2>
+        <p>我是一名 IT 技術從業者（MIS），也是一名熱愛語言的實踐者。我擅長用邏輯拆解複雜的文法架構，將語言學習「模組化」。</p>
+        <p>曾參與 <span class="highlight">法國音樂劇《羅密歐與茱麗葉》</span> 團隊技術口譯，並在清大共學圈計畫中帶領多國籍學生。我認為語言不只是考卷上的分數，是跨越界線的連結工具。</p>
+    </section>
+
+    <section id="services">
+        <h2>教學課程</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>法文實戰訓練</h3>
+                <p>針對 DALF/DELF 檢定或赴法生活。利用 C1 等級的嚴謹度，教你如何像口譯員一樣精準表達，拒絕死背硬記。</p>
+            </div>
+            <div class="card">
+                <h3>職場英文溝通</h3>
+                <p>結合兩年線上教學經驗與 945 分實力，針對商務視訊、技術對接與報告，提供最務實的英語指導。</p>
+            </div>
+            <div class="card">
+                <h3>多語共學工作坊</h3>
+                <p>延續多元文化教學經驗，打造跨語種的互動環境，讓你在交流中自然建立語感。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy">
+        <h2>教學理念</h2>
+        <blockquote>
+            「像管理系統一樣管理你的語言進度：建立穩定架構、持續優化效能、最終達成流暢溝通。」
+        </blockquote>
+    </section>
+
+    <section id="contact">
+        <h2>開始你的語言曲線</h2>
+        <p>目前開放線上預約試聽，歡迎來信諮詢或透過社交媒體聯絡我。</p>
+        <p>📧 Email: paul.language.it@example.com (請修改為您的信箱)</p>
+    </section>
+
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Paul's Logic & Language | 探索語言的無限可能</p>
+</div>
+
+</body>
+</html>
