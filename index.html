@@ -3,157 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paul | 法文線上教室</title>
+    <title>Paul 戴士保 | 法文線上教室</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --brand-blue: #1e3a8a;
-            --brand-accent: #e11d48;
-            --text-main: #1f2937;
-            --bg-soft: #fafafa;
+            --fr-blue: #002395;
+            --fr-white: #ffffff;
+            --fr-red: #ed2939;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --glass: rgba(255, 255, 255, 0.85);
         }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* 動態流動背景 */
         body {
-            font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
-            line-height: 1.8;
+            font-family: 'Noto Sans TC', sans-serif;
             color: var(--text-main);
-            margin: 0;
-            background-color: #fff;
+            background: linear-gradient(-45deg, #f0f4f8, #ffffff, #fff5f5, #f0f7ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
         }
 
-        header {
-            padding: 6rem 2rem;
-            text-align: center;
-            background-color: var(--bg-soft);
-            border-bottom: 1px solid #eee;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
-            max-width: 800px;
-            margin: auto;
+            max-width: 900px;
+            margin: 0 auto;
             padding: 2rem;
+            position: relative;
         }
 
-        .tag-group {
+        /* Header 區域 */
+        header {
+            text-align: center;
+            padding: 6rem 1rem 4rem;
+        }
+
+        .profile-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(to right, var(--fr-blue), var(--fr-white), var(--fr-red));
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #eee;
+            object-fit: cover;
+            border: 4px solid white;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--fr-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .name-ch { font-size: 1.5rem; color: var(--text-main); letter-spacing: 4px; display: block; margin-bottom: 1rem; }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            letter-spacing: 1px;
+        }
+
+        /* 語言能力區 */
+        .language-tags {
             margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
         }
 
-        .tag {
-            display: inline-block;
-            background: #fff;
-            border: 1px solid var(--brand-blue);
-            color: var(--brand-blue);
-            padding: 0.2rem 1rem;
-            border-radius: 4px;
-            margin: 0.3rem;
+        .lang-tag {
+            background: var(--glass);
+            border: 1px solid #e2e8f0;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
             font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
+        /* 區塊設計 */
         section {
-            padding: 4rem 0;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 24px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            border: 1px solid rgba(255,255,255,0.6);
         }
 
-        h1 { font-size: 2.5rem; color: var(--brand-blue); margin: 0; }
-        h2 { font-size: 1.8rem; color: var(--brand-blue); margin-bottom: 1.5rem; border-bottom: 2px solid var(--brand-accent); display: inline-block; }
-        
-        .experience-box {
-            background: var(--bg-soft);
+        h2 {
+            font-size: 1.8rem;
+            color: var(--fr-blue);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--fr-red);
+            display: inline-block;
+            border-radius: 2px;
+        }
+
+        /* 經歷卡片 */
+        .exp-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+
+        .exp-item strong { color: var(--fr-blue); }
+
+        /* 學生回饋區 */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: white;
             padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-bottom: 4px solid var(--fr-red);
         }
 
-        .course-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .course-item {
-            padding: 1.5rem;
-            border: 1px solid #f3f4f6;
+        .testimonial-text {
+            font-style: italic;
+            color: #475569;
             margin-bottom: 1rem;
-            border-radius: 8px;
+            line-height: 1.8;
         }
 
-        .course-item h3 { margin-top: 0; color: var(--brand-accent); }
+        .testimonial-author {
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: var(--fr-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 課程資訊 */
+        .course-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .course-card h3 { color: var(--fr-red); margin-bottom: 0.5rem; font-size: 1.1rem; }
 
         .footer {
             text-align: center;
-            padding: 4rem;
-            font-size: 0.85rem;
-            color: #9ca3af;
-            border-top: 1px solid #f3f4f6;
+            padding: 4rem 1rem;
+            color: var(--text-sub);
         }
 
-        .target-student {
-            color: var(--brand-accent);
+        .btn-contact {
+            display: inline-block;
+            background: var(--fr-blue);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
         }
 
-        .highlight {
-            font-weight: 600;
-            color: var(--brand-blue);
+        .btn-contact:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,35,149,0.2);
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Paul 的法文線上教室</h1>
-    <p>DALF C1 認證導師 ｜ 法國生活實踐者</p>
-    <div class="tag-group">
-        <span class="tag">初學者友善</span>
-        <span class="tag">A1~B2程度限定</span>
-        <span class="tag">線上互動教學</span>
-    </div>
-</header>
-
 <div class="container">
-    
-    <section>
-        <h2>關於教學者</h2>
-        <p>你好，我是 Paul。目前在電信產業擔任工程師，法文是我熱衷投入並連結世界的第二外語。我持有法文高階認證 <span class="highlight">DALF C1</span>，並曾在法國 <span class="highlight">EDHEC 高等商學院</span> 進行交換學習。</p>
+    <header>
+        <div class="profile-container">
+            <img src="https://via.placeholder.com/300" alt="Paul 戴士保" class="profile-pic">
+        </div>
+        <h1>Paul <span class="name-ch">戴士保</span></h1>
+        <p class="tagline">法文 A1-B2 線上教室 ｜ 語言學習實踐家</p>
         
-        <p>除了現職工作，我長期活躍於法語社群，目前為 <span style="color: var(--brand-accent); font-weight: 600;">法文演講會 (French Toastmasters)</span> 成員，持續精進語言表達與文化深度。我熱衷於將法語學習路徑轉化為易於理解的實踐過程。</p>
+        <div class="language-tags">
+            <div class="lang-tag">🇹🇼 中文 (Native)</div>
+            <div class="lang-tag">🇫🇷 法文 (DALF C1)</div>
+            <div class="lang-tag">🇺🇸 英文 (TOEIC 945)</div>
+            <div class="lang-tag">🇪🇸 西文 (Founder)</div>
+        </div>
+    </header>
 
-        <div class="experience-box">
-            <strong>核心經歷：</strong><br>
-            <ul>
-                <li><strong>清華大學共學圈計畫：</strong>擔任法文導師，帶領 6 位零基礎初學者透過「英/中/法」三語交織模式完成入門課程，獲得學生極佳回饋。</li>
-                <li><strong>專業技術口譯：</strong>曾協助法國經典音樂劇《羅密歐與茱麗葉》製作團隊進行現場技術口譯，具備高壓環境下的跨文化溝通經驗。</li>
-            </ul>
+    <section id="about">
+        <h2>關於教學者 💡</h2>
+        <p>你好，我是戴士保 Paul。我是一名任職於電信業的工程師，同時也是一位深度的語言學習愛好者。我熱衷於探索不同文化間的橋樑，目前不僅是 <span style="font-weight: bold;">法文演講會 (French Toastmasters)</span> 的成員，更是 <span style="font-weight: bold;">西文討論會</span> 的創辦人。</p>
+        <p style="margin-top: 1rem;">曾赴法國 <strong>EDHEC 高等商學院</strong> 交換的我，致力於將法文學習變得更有溫度與實戰感，而不僅僅是教科書上的規則。</p>
+        
+        <div class="exp-item" style="margin-top: 2rem;">
+            <strong>實務經歷：</strong> 曾任法國經典音樂劇《羅密歐與茱麗葉》團隊現場技術口譯。
+        </div>
+        <div class="exp-item">
+            <strong>教育合作：</strong> 清華大學共學圈計畫法文導師，帶領多國籍學生入門。
         </div>
     </section>
 
-    <section>
-        <h2>教學對象與內容</h2>
-        <p>本教室專注於服務 <span class="target-student">初學者至中級（A1 - B2）</span> 程度的學生，提供紮實的引導：</p>
-        
-        <div class="course-list">
-            <div class="course-item">
-                <h3>基礎扎根 (A1-A2)</h3>
-                <p>從正確發音、基礎日常對話到核心文法系統，建立紮實的語言基礎。</p>
+    <section id="testimonials">
+        <h2>學生回饋 💬</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">「本週學了數字與購物。起初以為很簡單，直到發現法文 97 居然是 4x20+10+7！規則雖然混亂但適應後非常有道理。我們還學了問價與點餐，這些實戰對話讓出國想像變得很真實。法文學習雖然充滿挑戰，但真的會讓人上癮！」</p>
+                <div class="testimonial-author"><i class="fa-solid fa-graduation-cap"></i> 清大共學計畫學員</div>
             </div>
-            <div class="course-item">
-                <h3>中級進階 (B1-B2)</h3>
-                <p>強化聽力與口說流暢度，擴展詞彙量，並能針對特定主題進行深入探討。</p>
-            </div>
-            <div class="course-item">
-                <h3>法文陪讀與輔導</h3>
-                <p>針對現有課程進行課後輔導、作業解惑，並提供備考（DELF）的策略建議。</p>
+            <div class="testimonial-card">
+                <p class="testimonial-text">「這週學了數數和點餐。發音對我來說真的很有挑戰性，有些單字很難唸也容易忘記，但內容非常有趣且實用！我覺得這堂課非常值得一試。」</p>
+                <div class="testimonial-author"><i class="fa-solid fa-graduation-cap"></i> 清大共學計畫學員</div>
             </div>
         </div>
     </section>
 
-    <section style="text-align: center;">
-        <h2>聯絡方式</h2>
-        <p>無論你是想從零開始，還是希望突破 B2 的瓶頸，都歡迎與我聊聊。</p>
-        <p style="margin-top: 2rem; font-size: 1.2rem;">📧 <strong>Email:</strong> <a href="mailto:hua29778@gmail.com" style="color: var(--brand-blue); text-decoration: none; font-weight: bold;">hua29778@gmail.com</a></p>
+    <section id="courses">
+        <h2>教學對象 (A1-B2 限定) 📚</h2>
+        <div class="course-card">
+            <h3>🥖 基礎紮根 (A1-A2)</h3>
+            <p>從精準發音、基礎購物與社交對話開始，建立最強大的法語肌肉記憶。</p>
+        </div>
+        <div class="course-card">
+            <h3>🍷 進階強化 (B1-B2)</h3>
+            <p>深入探討文化主題，訓練流暢口說，陪你突破 B2 的溝通瓶頸。</p>
+        </div>
+        <div class="course-card">
+            <h3>📖 法文陪讀輔導</h3>
+            <p>協助作業排難、現有教材補充，作為你學習路上的專業後盾。</p>
+        </div>
     </section>
 
-</div>
+    <section id="contact" style="text-align: center;">
+        <h2>開啟法文對話 ✉️</h2>
+        <p>無論你是被法國文化吸引，還是想精進語言能力，都歡迎透過 Email 聯絡我。</p>
+        <a href="mailto:hua29778@gmail.com" class="btn-contact">hua29778@gmail.com</a>
+    </section>
 
-<div class="footer">
-    <p>&copy; 2026 Paul's French Teaching. <br>法文學習，從這裡開始。</p>
+    <div class="footer">
+        <p>&copy; 2026 Paul Tai - 戴士保 | 邏輯、實戰、與法語文化的深度連結</p>
+    </div>
 </div>
 
 </body>
