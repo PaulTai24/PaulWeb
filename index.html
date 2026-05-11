@@ -47,7 +47,7 @@
             padding: 5rem 1rem 3rem;
         }
 
-        /* 修正後的照片容器 */
+        /* --- 核心修正區：解決切頭問題 --- */
         .profile-wrapper {
             width: 220px;
             height: 220px;
@@ -65,11 +65,12 @@
             height: 100%;
             border-radius: 50%;
             background: white;
-            /* 關鍵修正：確保從頂部對齊以顯示臉部 */
             object-fit: cover;
-            object-position: 50% 15%; 
+            /* 修正：50% 是水平居中，5% 是垂直位置（極限靠近頂部以顯示臉部） */
+            object-position: 50% 5% !important; 
             display: block;
         }
+        /* --------------------------------- */
 
         h1 {
             font-family: 'Playfair Display', serif;
@@ -201,14 +202,14 @@
     </section>
 
     <section id="testimonials">
-        <h2>學生見證 💬</h2>
+        <h2>學員見證 💬</h2>
         <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-bottom: 4px solid var(--fr-red); margin-bottom: 1.5rem;">
             <p style="font-style: italic; color: #475569; line-height: 1.8;">「本週學了數字與購物。法文數字 97 竟然是 4x20+10+7！規則雖然獨特但理解邏輯後非常有成就感。實戰對話讓出國購物想像變得很真實，Paul 的課程真的會讓人上癮！」</p>
-            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員</p>
+            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員A</p>
         </div>
         <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-bottom: 4px solid var(--fr-red);">
             <p style="font-style: italic; color: #475569; line-height: 1.8;">「點餐與數數實戰非常有趣且實用！ 發音雖然具備挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得一試。」</p>
-            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員</p>
+            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員B</p>
         </div>
     </section>
 
