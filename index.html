@@ -15,7 +15,7 @@
             --fr-red: #ed2939;
             --text-main: #1e293b;
             --text-sub: #64748b;
-            --glass: rgba(255, 255, 255, 0.85);
+            --glass: rgba(255, 255, 255, 0.9);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,7 +47,7 @@
             padding: 5rem 1rem 3rem;
         }
 
-        /* --- 核心修正區：解決切頭問題 --- */
+        /* --- 終極修正：針對全身照的頭像裁切 --- */
         .profile-wrapper {
             width: 220px;
             height: 220px;
@@ -58,6 +58,9 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .profile-pic {
@@ -66,11 +69,10 @@
             border-radius: 50%;
             background: white;
             object-fit: cover;
-            /* 修正：50% 是水平居中，5% 是垂直位置（極限靠近頂部以顯示臉部） */
-            object-position: 50% 5% !important; 
+            /* 調整為 0%：強制從圖片最頂端開始顯示，解決切頭問題 */
+            object-position: center 0% !important; 
             display: block;
         }
-        /* --------------------------------- */
 
         h1 {
             font-family: 'Playfair Display', serif;
@@ -205,11 +207,11 @@
         <h2>學員見證 💬</h2>
         <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-bottom: 4px solid var(--fr-red); margin-bottom: 1.5rem;">
             <p style="font-style: italic; color: #475569; line-height: 1.8;">「本週學了數字與購物。法文數字 97 竟然是 4x20+10+7！規則雖然獨特但理解邏輯後非常有成就感。實戰對話讓出國購物想像變得很真實，Paul 的課程真的會讓人上癮！」</p>
-            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員A</p>
+            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員</p>
         </div>
         <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-bottom: 4px solid var(--fr-red);">
-            <p style="font-style: italic; color: #475569; line-height: 1.8;">「點餐與數數實戰非常有趣且實用！ 發音雖然具備挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得一試。」</p>
-            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員B</p>
+            <p style="font-style: italic; color: #475569; line-height: 1.8;">「點餐與數數實戰非常有趣且實用！發音雖然具備挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得一試。」</p>
+            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員</p>
         </div>
     </section>
 
