@@ -48,25 +48,18 @@
         }
 
         .profile-container {
-            width: 220px;
-            height: 220px;
+            width: 200px;
+            height: 200px;
             margin: 0 auto 2rem;
             border-radius: 50%;
             padding: 6px;
             background: linear-gradient(to right, var(--fr-blue), var(--fr-white), var(--fr-red));
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             overflow: hidden;
-        }
-
-        .profile-pic {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: #ffffff;
-            object-fit: cover;
-            border: 4px solid white;
-            /* 這裡請確保圖片檔案名稱正確 */
-            content: url('edited-image.jpg'); 
+            background-size: cover;
+            background-position: center;
+            /* 身為 MIS，我們這裡使用最穩定的相對路徑 */
+            background-image: url('profile.jpg'); 
         }
 
         h1 {
@@ -205,9 +198,7 @@
 
 <div class="container">
     <header>
-        <div class="profile-container">
-            <img src="edited-image.jpg" alt="Paul 戴士保" class="profile-pic">
-        </div>
+        <div class="profile-container"></div>
         <h1>Paul <span class="name-ch">戴士保</span></h1>
         <p class="tagline">法文 A1-B2 線上教室 ｜ 語言實踐導師</p>
         
@@ -261,15 +252,15 @@
                 <i class="fa-solid fa-envelope"></i>
                 <span>Email</span>
             </a>
-            <a href="https://line.me/ti/p/~paulisthebest" class="social-icon">
+            <a href="https://line.me/ti/p/~paulisthebest" target="_blank" class="social-icon">
                 <i class="fa-brands fa-line"></i>
-                <span>LINE: paulisthebest</span>
+                <span>LINE ID</span>
             </a>
-            <a href="https://facebook.com/戴士保" class="social-icon">
+            <a href="https://www.facebook.com/search/top?q=戴士保" target="_blank" class="social-icon">
                 <i class="fa-brands fa-facebook"></i>
                 <span>Facebook</span>
             </a>
-            <a href="https://instagram.com/xbpaulxb" class="social-icon">
+            <a href="https://www.instagram.com/xbpaulxb/" target="_blank" class="social-icon">
                 <i class="fa-brands fa-instagram"></i>
                 <span>Instagram</span>
             </a>
