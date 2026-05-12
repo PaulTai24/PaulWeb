@@ -4,231 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul 戴士保 | 法文線上教室</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --fr-blue: #002395;
-            --fr-white: #ffffff;
-            --fr-red: #ed2939;
-            --text-main: #1e293b;
-            --text-sub: #64748b;
-            --glass: rgba(255, 255, 255, 0.9);
+            --fr-blue: #002395; --fr-red: #ed2939; --text-main: #1e293b;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
+        /* 動態流動背景 CSS */
         body {
-            font-family: 'Noto Sans TC', sans-serif;
-            color: var(--text-main);
+            margin: 0; font-family: 'Noto Sans TC', sans-serif; color: var(--text-main);
             background: linear-gradient(-45deg, #f0f4f8, #ffffff, #fff5f5, #f0f7ff);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            min-height: 100vh;
+            animation: gradientFlow 15s ease infinite;
         }
 
-        @keyframes gradientBG {
+        @keyframes gradientFlow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
 
-        header {
-            text-align: center;
-            padding: 5rem 1rem 3rem;
-        }
-
-        /* --- 終極修正：針對全身照的頭像裁切 --- */
-        .profile-wrapper {
-            width: 220px;
-            height: 220px;
-            margin: 0 auto 2rem;
-            border-radius: 50%;
-            padding: 6px;
-            background: linear-gradient(to right, var(--fr-blue), var(--fr-white), var(--fr-red));
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .profile-pic {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: white;
-            object-fit: cover;
-            /* 調整為 0%：強制從圖片最頂端開始顯示，解決切頭問題 */
-            object-position: center 0% !important; 
-            display: block;
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--fr-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        .name-ch { font-size: 1.5rem; color: var(--text-main); letter-spacing: 4px; display: block; margin-bottom: 1rem; }
-
-        .tagline {
-            font-size: 1.1rem;
-            color: var(--text-sub);
-            letter-spacing: 1px;
-            font-weight: 300;
-        }
-
-        .language-tags {
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .lang-tag {
-            background: var(--glass);
-            border: 1px solid #e2e8f0;
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
+        /* 毛玻璃卡片效果 */
         section {
-            background: var(--glass);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
-            padding: 3rem;
             border-radius: 24px;
+            padding: 3rem;
             margin-bottom: 3rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
-            border: 1px solid rgba(255,255,255,0.6);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 35, 149, 0.05);
         }
 
-        h2 {
-            font-size: 1.8rem;
-            color: var(--fr-blue);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        header { text-align: center; padding: 4rem 0; }
+        .profile-wrapper {
+            width: 200px; height: 200px; margin: 0 auto 2rem; border-radius: 50%;
+            border: 5px solid #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden; background: #fff;
         }
+        .profile-pic { width: 100%; height: 100%; object-fit: cover; object-position: 50% 10%; }
 
-        h2::before {
-            content: '';
-            width: 4px;
-            height: 24px;
-            background: var(--fr-red);
-            display: inline-block;
-            border-radius: 2px;
-        }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--fr-blue); margin: 0; }
+        .subtitle { font-size: 1.2rem; color: #64748b; letter-spacing: 2px; }
 
-        .intro-text { line-height: 1.8; font-size: 1.05rem; color: #334155; margin-bottom: 1.5rem; }
-
-        .highlight-box {
-            background: rgba(0, 35, 149, 0.03);
-            border-left: 4px solid var(--fr-blue);
+        /* 回饋卡片樣式 */
+        .feedback-card {
+            border-left: 4px solid var(--fr-red);
+            background: rgba(255, 255, 255, 0.9);
             padding: 1.5rem;
+            margin-bottom: 1.5rem;
             border-radius: 0 12px 12px 0;
-            margin-top: 1.5rem;
         }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-icon {
-            text-decoration: none;
-            color: var(--text-main);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.3s;
-            font-size: 0.8rem;
-        }
-
-        .social-icon i { font-size: 2rem; color: var(--fr-blue); }
-        .social-icon:hover { transform: translateY(-5px); }
-
-        .footer { text-align: center; padding: 4rem 1rem; color: var(--text-sub); font-size: 0.9rem; }
+        .social-links { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; }
+        .social-links a { color: var(--fr-blue); text-decoration: none; font-size: 1.5rem; transition: 0.3s; }
+        .social-links a:hover { color: var(--brand-accent); transform: translateY(-5px); }
     </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <div class="profile-wrapper">
+                <img src="profile.jpg" alt="Paul 戴士保" class="profile-pic">
+            </div>
+            <h1>Paul 戴士保</h1>
+            <p class="subtitle">法文 A1-B2 線上教室 ｜ 語言實踐導師</p>
+        </header>
 
-<div class="container">
-    <header>
-        <div class="profile-wrapper">
-            <img src="profile.jpg" alt="Paul 戴士保" class="profile-pic">
-        </div>
-        <h1>Paul <span class="name-ch">戴士保</span></h1>
-        <p class="tagline">法文 A1-B2 線上教室 ｜ 語言實踐導師</p>
-        
-        <div class="language-tags">
-            <div class="lang-tag">🇹🇼 中文 (母語)</div>
-            <div class="lang-tag">🇫🇷 法文 (DALF C1)</div>
-            <div class="lang-tag">🇺🇸 英文 (TOEIC 945)</div>
-            <div class="lang-tag">🇪🇸 西文 (討論會創辦人)</div>
-        </div>
-    </header>
+        <section>
+            <h2>關於 Paul 💡</h2>
+            <p>Paul 畢業於<strong>輔仁大學英文系</strong>，目前於<strong>資通訊公司</strong>擔任工程師。他具備 <strong>DALF C1</strong> 高階認證，並曾於法國 <strong>EDHEC 商學院</strong> 交換。他是一位熱情的語言學習愛好者，精通中、英、法、西四國語言。</p>
+            <p><strong>教學特色：</strong> Paul 充滿耐心，深知學習法文的痛點。他曾擔任國際學校法語陪讀老師，並帶領清大共學計畫學員成功入門。</p>
+        </section>
 
-    <section id="about-paul">
-        <h2>關於 Paul 💡</h2>
-        <div class="intro-text">
-            Paul 畢業於<strong>輔仁大學英文系</strong>，目前於知名<strong>資通訊公司</strong>擔任工程師。他不僅是一位專業的技術人才，更是一位對語言極具熱情的實踐者。持有法文高階認證 <strong>DALF C1</strong> 的他，曾遠赴法國 <strong>EDHEC 高等商學院</strong> 進行交換學習，並在學成歸國後持續深耕法語社群。
-        </div>
-        <div class="intro-text">
-            Paul 具備豐富的實務溝通與教學經驗。他曾擔任法國經典音樂劇《羅密歐與茱麗葉》團隊的<strong>現場技術口譯</strong>，並長期服務於歐洲國際學校學生，擔任法語<strong>一對一陪讀導師</strong>。這些經歷讓他能精準捕捉法語應用的各種語境與細節。
-        </div>
-        <div class="highlight-box">
-            <p><strong>教學特質：</strong> Paul 充滿教學熱忱且極具耐心。身為跨領域學習者，他深知台灣學生學習法文的痛點，並能以邏輯清晰、易於理解的技巧帶領學生突破關卡。</p>
-        </div>
-    </section>
+        <section>
+            <h2>學員見證 💬</h2>
+            <div class="feedback-card">
+                <p>「本週學了數字與購物常用片語。法文數字 97 竟然是 4x20+10+7！規則雖然獨特，但理解邏輯後發現也沒有這麼困難。實戰對話非常實用，Paul 的課真的會讓人上癮！」</p>
+            </div>
+            <div class="feedback-card">
+                <p>「點餐與數數非常有趣且實用！發音雖然很有難度，但在 Paul 的帶領下學到了許多技巧，大家一定要上他的課。」</p>
+            </div>
+        </section>
 
-    <section id="testimonials">
-        <h2>學員見證 💬</h2>
-        <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-bottom: 4px solid var(--fr-red); margin-bottom: 1.5rem;">
-            <p style="font-style: italic; color: #475569; line-height: 1.8;">「本週學了數字與購物。法文數字 97 竟然是 4x20+10+7！規則雖然獨特但理解邏輯後非常有成就感。實戰對話讓出國購物想像變得很真實，Paul 的課程真的會讓人上癮！」</p>
-            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員A</p>
-        </div>
-        <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-bottom: 4px solid var(--fr-red);">
-            <p style="font-style: italic; color: #475569; line-height: 1.8;">「點餐與數數實戰非常有趣且實用！發音雖然具備挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得一試。」</p>
-            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員B</p>
-        </div>
-    </section>
-
-    <section id="contact" style="text-align: center;">
-        <h2>開啟你的法語篇章 ✉️</h2>
-        <div class="social-links">
-            <a href="mailto:hua29778@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
-            <a href="https://line.me/ti/p/~paulisthebest" target="_blank" class="social-icon"><i class="fa-brands fa-line"></i><span>LINE</span></a>
-            <a href="https://www.facebook.com/search/top?q=戴士保" target="_blank" class="social-icon"><i class="fa-brands fa-facebook"></i><span>Facebook</span></a>
-            <a href="https://www.instagram.com/xbpaulxb/" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
-        </div>
-    </section>
-
-    <div class="footer">
-        <p>&copy; 2026 Paul Tai - 戴士保 | 專業、邏輯與溫度的法文教室</p>
+        <section style="text-align: center;">
+            <h2>開啟你的法語篇章 ✉️</h2>
+            <div class="social-links">
+                <a href="mailto:hua29778@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#"><i class="fa-brands fa-line"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p style="margin-top: 2rem; color: #64748b;">Line ID: paulisthebest</p>
+        </section>
     </div>
-</div>
-
 </body>
 </html>
