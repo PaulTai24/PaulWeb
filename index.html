@@ -306,25 +306,37 @@
     </section>
 
     <style>
-    /* --- 優化見證區排版：確保對稱與大小一致 --- */
+    /* --- 填補右下角空白：讓最後一張卡片自動打平 --- */
     .testimonial-container {
-        display: grid;
-        /* 固定 3 欄，如果寬度不足則自動換行並保持靠左對齊 */
-        grid-template-columns: repeat(3, 1fr); 
+        display: flex;
+        flex-wrap: wrap; /* 允許換行 */
         gap: 1.5rem;
         margin-top: 2.5rem;
     }
 
-    /* 針對平板與手機的響應式調整 */
-    @media (max-width: 900px) {
-        .testimonial-container {
-            grid-template-columns: repeat(2, 1fr); /* 平板顯示 2 欄 */
-        }
+    .testimonial-card {
+        background: white;
+        padding: 2.2rem;
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border-right: 5px solid #eee;
+        display: flex;
+        flex-direction: column;
+        
+        /* 核心邏輯：寬度足夠時三等分，不足時自動長大填滿空白 */
+        flex: 1 1 280px; 
+        
+        min-height: 250px;
+        transition: all 0.3s ease;
+        position: relative;
     }
 
+    /* 手機端微調 */
     @media (max-width: 650px) {
-        .testimonial-container {
-            grid-template-columns: 1fr; /* 手機顯示 1 欄 */
+        .testimonial-card {
+            flex: 1 1 100%; /* 手機上一格一行 */
+        }
+    }
         }
     }
 
