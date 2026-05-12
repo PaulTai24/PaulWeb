@@ -55,7 +55,6 @@
             animation: fadeInUp 1s ease-out;
         }
 
-        /* --- 個人照片區 (微交互：滑過縮放) --- */
         .profile-wrapper {
             width: 220px;
             height: 220px;
@@ -100,7 +99,6 @@
             margin-bottom: 2rem;
         }
 
-        /* --- 置頂 CTA 按鈕 (微交互：呼吸感與位移) --- */
         .cta-btn {
             display: inline-block;
             background: var(--fr-red);
@@ -128,7 +126,6 @@
             animation: none;
         }
 
-        /* --- 語言標籤 (微交互：浮現感) --- */
         .language-tags {
             margin-top: 2.5rem;
             display: flex;
@@ -180,53 +177,42 @@
             content: ''; width: 5px; height: 28px; background: var(--fr-red); border-radius: 10px;
         }
 
-        /* --- 課程分級區塊 --- */
+        /* --- 課程分級區塊 (四格設計) --- */
         .course-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
             margin-top: 1rem;
         }
 
         .level-card {
             background: rgba(255, 255, 255, 0.6);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 20px;
             border: 1px solid transparent;
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .level-card:hover {
             background: white;
-            border: 1px solid #e2e8f0;
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--fr-blue);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
         .level-card h3 {
             color: var(--fr-red);
             margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-size: 1.4rem;
         }
 
-        .level-card ul {
-            list-style: none;
-            padding-left: 0;
+        .level-card p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            line-height: 1.6;
         }
 
-        .level-card li {
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .level-card li i { color: var(--fr-blue); font-size: 0.9rem; }
-
-        /* --- 社交圖示 (微交互：顏色與旋轉) --- */
         .social-links {
             display: flex;
             justify-content: center;
@@ -287,11 +273,11 @@
     <section id="about-paul">
         <h2>關於 Paul 💡</h2>
         <div style="line-height: 1.9; font-size: 1.1rem; color: #334155;">
-            畢業於<strong>輔仁大學英文系</strong>，目前於知名資通訊公司擔任工程師。Paul 是一位對語言極具熱情的實踐者，持有法文 <strong>DALF C1</strong>高階檢定，並遠赴法國 <strong>EDHEC 高等商學院</strong> 進行交換學習。
+            畢業於<strong>輔仁大學英文系</strong>，目前於知名資通訊公司擔任工程師。Paul 是一位對語言極具熱情的實踐者，持有法文高階 <strong>DALF C1</strong>檢定證書，並曾赴法國 <strong>EDHEC 高等商學院</strong> 進行交換學習。
             <br><br>
-            Paul具備豐富的實務經驗，曾擔任法國經典音樂劇《羅密歐與茱麗葉》團隊的<strong>現場技術口譯</strong>，並服務國際學校學生，擔任法文<strong>一對一陪讀導師</strong>。
-            <br><br>他在教學領域累積了深厚實績，曾擔任<strong>清華大學共學計畫</strong>法文老師，帶領跨國籍學員入門；目前亦為<strong>法文演講會 </strong> 的活躍成員，持續精進法文公眾表達能力。
-            <br><br>Paul 充滿熱忱且極具耐心。身為跨領域學習者，他深知台灣學生學習法文的痛點，能以邏輯清晰、易於理解的技巧帶領學生突破關卡。
+            Paul具備豐富的實務經驗，曾擔任法國經典音樂劇《羅密歐與茱麗葉》團隊的<strong>現場技術口譯</strong>，並服務國際學校學生，擔任法文</strong>一對一陪讀家教</strong>。
+            <br><br>Paul在教學領域累積了深厚實績，曾擔任清華大學共學計畫法文老師，帶領跨國籍學員入門；<br>目前亦為法文演講會 的活躍成員，持續精進法文公眾表達能力。
+            <br><br>Paul 充滿熱忱且極具耐心。身為跨領域學習者，他深知台灣學生學習法文的痛點，擅長以邏輯清晰、易於理解的方式帶領學生突破關卡。
         </div>
     </section>
 
@@ -299,41 +285,35 @@
         <h2>課程分級導覽 📚</h2>
         <div class="course-grid">
             <div class="level-card">
-                <h3>基礎紮根 A1-A2 <span style="font-size: 0.8rem; background: #fee2e2; padding: 4px 10px; border-radius: 10px;">基礎</span></h3>
+                <h3>基礎紮根 A1-A2 <span style="font-size: 0.8rem; background: #fee2e2; padding: 4px 10px; border-radius: 10px;">入門</span></h3>
                 <ul>
                     <li><i class="fa-solid fa-check"></i> 精準法文發音系統建立</li>
                     <li><i class="fa-solid fa-check"></i> 購物、點餐等日常生活對話</li>
                     <li><i class="fa-solid fa-check"></i> 拆解基礎文法邏輯</li>
-                    <li><i class="fa-solid fa-check"></i> 克服法文數字與日期障礙</li>
+                    <li><i class="fa-solid fa-check"></i> 克服常見學習困難</li>
                 </ul>
             </div>
             <div class="level-card">
-                <h3>進階強化 B1-B2 <span style="font-size: 0.8rem; background: #dcfce7; padding: 4px 10px; border-radius: 10px;">中高級</span></h3>
+                <h3>進階強化 B1-B2 <span style="font-size: 0.8rem; background: #dcfce7; padding: 4px 10px; border-radius: 10px;">流暢</span></h3>
                 <ul>
                     <li><i class="fa-solid fa-check"></i> 提升口說流暢度與應變力</li>
-                    <li><i class="fa-solid fa-check"></i> 深入議題討論與時事探討</li>
-                    <li><i class="fa-solid fa-check"></i> DELF 檢定備考與修正</li>
+                    <li><i class="fa-solid fa-check"></i> 議題討論與時事探討</li>
+                    <li><i class="fa-solid fa-check"></i> DELF 檢定備考與練習</li>
                     <li><i class="fa-solid fa-check"></i> 法文寫作與表達優化</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    
     <section id="testimonials">
         <h2>學員見證 💬</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-item" style="border-right-color: var(--fr-red);">
-                <p class="testimonial-text">「本週學了數字與購物常用單字。法文數字 97 竟然是 4x20+10+7！規則雖然獨特但了解後發現是有邏輯的。**Paul 的課程真的會讓人上癮！**」</p>
-                <p class="testimonial-author">— 清大共學計畫學員 A</p>
-            </div>
-
-            <div class="testimonial-item" style="border-right-color: var(--fr-blue);">
-                <p class="testimonial-text">「點餐與數數課程非常有趣且實用！發音雖然很有挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得一試。」</p>
-                <p class="testimonial-author">— 清大共學計畫學員 B</p>
-            </div>
-
-
+        <div style="background: white; padding: 2rem; border-radius: 20px; border-right: 4px solid var(--fr-red); margin-bottom: 2rem;">
+            <p style="font-style: italic; color: #475569; line-height: 1.8;">「本週學了數字與購物常用單字。法文數字 97 竟然是 4x20+10+7！規則雖然奇特但了解後發現是有邏輯的。Paul 的課程真的會讓人上癮！」</p>
+            <p style="font-size: 0.9rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold; text-align: right;">— 清大共學計畫學員</p>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 20px; border-right: 4px solid var(--fr-blue);">
+            <p style="font-style: italic; color: #475569; line-height: 1.8;">「點餐與數數課程非常有趣且實用！發音雖然很有挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得。」</p>
+            <p style="font-size: 0.9rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold; text-align: right;">— 清大共學計畫學員</p>
         </div>
     </section>
 
@@ -348,7 +328,7 @@
     </section>
 
     <div class="footer">
-        <p>&copy; 2026 Paul | 專業且充滿溫度的法文教室</p>
+        <p>&copy; 2026 Paul | 專業且有溫度的法文教室</p>
     </div>
 </div>
 
