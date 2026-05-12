@@ -319,22 +319,63 @@
         </div>
     </section>
 
+    <style>
+        /* 見證區塊容器優化 */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-right: 5px solid #eee; /* 預設邊框 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+
+        .testimonial-author {
+            font-size: 0.85rem;
+            color: var(--fr-blue);
+            font-weight: bold;
+            text-align: right;
+        }
+    </style>
+
     <section id="testimonials">
         <h2>學員見證 💬</h2>
-        
-        <div class="testimonial-item" style="border-right-color: var(--fr-red);">
-            <p>「本週學了數字與購物常用單字。法文數字 97 竟然是 4x20+10+7！規則雖然獨特但了解後發現是有邏輯的。**Paul 的課程真的會讓人上癮！**」</p>
-            <p class="testimonial-author">— 清大共學計畫學員 A</p>
-        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-item" style="border-right-color: var(--fr-red);">
+                <p class="testimonial-text">「本週學了數字與購物常用單字。法文數字 97 竟然是 4x20+10+7！規則雖然獨特但了解後發現是有邏輯的。**Paul 的課程真的會讓人上癮！**」</p>
+                <p class="testimonial-author">— 清大共學計畫學員 A</p>
+            </div>
 
-        <div class="testimonial-item" style="border-right-color: var(--fr-blue);">
-            <p>「點餐與數數課程非常有趣且實用！發音雖然很有挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得一試。」</p>
-            <p class="testimonial-author">— 清大共學計畫學員 B</p>
-        </div>
+            <div class="testimonial-item" style="border-right-color: var(--fr-blue);">
+                <p class="testimonial-text">「點餐與數數課程非常有趣且實用！發音雖然很有挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得一試。」</p>
+                <p class="testimonial-author">— 清大共學計畫學員 B</p>
+            </div>
 
-        <div class="testimonial-item" style="border-right-color: #facc15;">
-            <p>「法文真的像大家說的那麼難嗎？不，其實更難！光是數字就讓人很頭痛，**幸好老師用生動且清晰的方式解釋得很清楚**。很期待未來有一天能踏上法國的土地！」</p>
-            <p class="testimonial-author">— 清華共學圈圈學員 C</p>
+            <div class="testimonial-item" style="border-right-color: #facc15;">
+                <p class="testimonial-text">「法文真的像大家說的那麼難嗎？不，其實更難！光是數字就讓人很頭痛，**幸好老師用生動且清晰的方式解釋得很清楚**。很期待未來能踏上法國土地！」</p>
+                <p class="testimonial-author">— 清華共學圈圈學員 C</p>
+            </div>
         </div>
     </section>
 
