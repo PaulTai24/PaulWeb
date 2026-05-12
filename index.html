@@ -15,7 +15,9 @@
             --fr-red: #ed2939;
             --text-main: #1e293b;
             --text-sub: #64748b;
-            --glass: rgba(255, 255, 255, 0.9);
+            /* 調整毛玻璃透明度與底色 */
+            --glass: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.5);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,9 +25,10 @@
         body {
             font-family: 'Noto Sans TC', sans-serif;
             color: var(--text-main);
-            background: linear-gradient(-45deg, #f0f4f8, #ffffff, #fff5f5, #f0f7ff);
+            /* 優化漸層色，讓藍紅隱喻更具質感 */
+            background: linear-gradient(-45deg, #eef2f7, #ffffff, #fff1f2, #eef6ff);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 12s ease infinite;
             min-height: 100vh;
         }
 
@@ -33,6 +36,12 @@
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+
+        /* 新增：區塊浮現動畫 */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .container {
@@ -44,18 +53,18 @@
 
         header {
             text-align: center;
-            padding: 5rem 1rem 3rem;
+            padding: 6rem 1rem 4rem;
+            animation: fadeInUp 1s ease-out;
         }
 
-        /* 針對全身照優化的裁切區 */
         .profile-wrapper {
             width: 220px;
             height: 220px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 2.5rem;
             border-radius: 50%;
-            padding: 6px;
-            background: linear-gradient(to right, var(--fr-blue), var(--fr-white), var(--fr-red));
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            padding: 8px;
+            background: linear-gradient(135deg, var(--fr-blue), var(--fr-white), var(--fr-red));
+            box-shadow: 0 20px 40px rgba(0, 35, 149, 0.15);
             position: relative;
             overflow: hidden;
             display: flex;
@@ -69,89 +78,128 @@
             border-radius: 50%;
             background: white;
             object-fit: cover;
-            /* 關鍵：強制從圖片最頂端開始顯示，抓取臉部 */
             object-position: center 0% !important; 
             display: block;
+            border: 4px solid #fff;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--fr-blue);
             margin-bottom: 0.5rem;
+            letter-spacing: -1px;
         }
 
-        .name-ch { font-size: 1.5rem; color: var(--text-main); letter-spacing: 4px; display: block; margin-bottom: 1rem; }
+        .name-ch { font-size: 1.6rem; color: var(--text-main); letter-spacing: 6px; display: block; margin: 0.5rem 0 1.5rem; }
 
         .tagline {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--text-sub);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             font-weight: 300;
+            text-transform: uppercase;
         }
 
         .language-tags {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         .lang-tag {
             background: var(--glass);
-            border: 1px solid #e2e8f0;
-            padding: 0.4rem 1.2rem;
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1.4rem;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
         }
+
+        .lang-tag:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0, 35, 149, 0.1); }
 
         section {
             background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 3rem;
-            border-radius: 24px;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
-            border: 1px solid rgba(255,255,255,0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 3.5rem;
+            border-radius: 30px;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.05);
+            border: 1px solid var(--glass-border);
+            animation: fadeInUp 1s ease-out both;
         }
 
+        /* 不同區塊的延遲動畫 */
+        section:nth-of-type(1) { animation-delay: 0.2s; }
+        section:nth-of-type(2) { animation-delay: 0.4s; }
+        section:nth-of-type(3) { animation-delay: 0.6s; }
+
         h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--fr-blue);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         h2::before {
             content: '';
-            width: 4px;
-            height: 24px;
+            width: 5px;
+            height: 28px;
             background: var(--fr-red);
             display: inline-block;
-            border-radius: 2px;
+            border-radius: 10px;
         }
 
-        .intro-text { line-height: 1.8; font-size: 1.05rem; color: #334155; margin-bottom: 1.5rem; }
+        .intro-text { line-height: 1.9; font-size: 1.1rem; color: #334155; margin-bottom: 1.5rem; text-align: justify; }
 
         .highlight-box {
-            background: rgba(0, 35, 149, 0.03);
-            border-left: 4px solid var(--fr-blue);
-            padding: 1.5rem;
-            border-radius: 0 12px 12px 0;
-            margin-top: 1.5rem;
+            background: linear-gradient(to right, rgba(0, 35, 149, 0.05), transparent);
+            border-left: 5px solid var(--fr-blue);
+            padding: 2rem;
+            border-radius: 0 15px 15px 0;
+            margin-top: 2rem;
+        }
+
+        .testimonial-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            border-right: 4px solid var(--fr-red);
+            margin-bottom: 2rem;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-item:hover { transform: scale(1.02); }
+
+        .testimonial-item p { font-style: italic; color: #475569; line-height: 1.8; font-size: 1.05rem; }
+
+        .testimonial-item::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: rgba(237, 41, 57, 0.1);
+            font-size: 2rem;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
             flex-wrap: wrap;
         }
 
@@ -161,15 +209,29 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            transition: transform 0.3s;
-            font-size: 0.8rem;
+            gap: 12px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
-        .social-icon i { font-size: 2rem; color: var(--fr-blue); }
-        .social-icon:hover { transform: translateY(-5px); }
+        .social-icon i {
+            font-size: 2.5rem;
+            color: var(--fr-blue);
+            transition: color 0.3s;
+        }
 
-        .footer { text-align: center; padding: 4rem 1rem; color: var(--text-sub); font-size: 0.9rem; }
+        .social-icon:hover i { color: var(--fr-red); }
+        .social-icon:hover { transform: translateY(-8px); }
+
+        .footer { text-align: center; padding: 5rem 1rem; color: var(--text-sub); font-size: 0.95rem; letter-spacing: 1px; }
+
+        /* 響應式優化 */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            section { padding: 2rem; }
+            .profile-wrapper { width: 180px; height: 180px; }
+        }
     </style>
 </head>
 <body>
@@ -179,8 +241,9 @@
         <div class="profile-wrapper">
             <img src="profile.jpg" alt="Paul 戴士保" class="profile-pic">
         </div>
-        <h1>Paul <span class="name-ch">戴士保</span></h1>
-        <p class="tagline">法文 A1-B2 線上教室 ｜ 語言實踐導師</p>
+        <h1>Paul</h1>
+        <span class="name-ch">戴士保</span>
+        <p class="tagline">Logic & Passion | 法文線上教室</p>
         
         <div class="language-tags">
             <div class="lang-tag">🇹🇼 中文 (母語)</div>
@@ -193,25 +256,25 @@
     <section id="about-paul">
         <h2>關於 Paul 💡</h2>
         <div class="intro-text">
-            Paul 畢業於<strong>輔仁大學英文系</strong>，目前於知名<strong>資通訊公司</strong>擔任工程師。他是一位對語言極具熱情的實踐者。 持有法文高階認證 <strong>DALF C1</strong> 的他，曾遠赴法國 <strong>EDHEC 高等商學院</strong> 進行交換學習，並在學成歸國後持續深耕法語社群。
+            畢業於<strong>輔仁大學英文系</strong>，目前於知名<strong>資通訊公司</strong>擔任工程師。Paul 是一位對語言極具熱情的實踐者，持有法文高階認證 <strong>DALF C1</strong>，並曾遠赴法國 <strong>EDHEC 高等商學院</strong> 進行交換學習。
         </div>
         <div class="intro-text">
-            Paul 具備豐富的實務溝通與教學經驗。他曾擔任法國經典音樂劇《羅密歐與茱麗葉》團隊的<strong>現場技術口譯</strong>，並長期服務於歐洲國際學校學生，擔任法語<strong>一對一陪讀導師</strong>。 這些經歷讓他能精準捕捉法語應用的各種語境與細節。
+            他具備豐富的實務經驗，曾擔任法國經典音樂劇《羅密歐與茱麗葉》團隊的<strong>現場技術口譯</strong>，並長期服務於歐洲國際學校學生，擔任法語<strong>一對一陪讀導師</strong>。
         </div>
         <div class="highlight-box">
-            <p><strong>教學特質：</strong> Paul 充滿教學熱忱且極具耐心。身為跨領域學習者，他深知台灣學生學習法文的痛點，並能以邏輯清晰、易於理解的技巧帶領學生突破關卡。</p>
+            <p><strong>教學特質：</strong> 充滿熱忱且極具耐心。身為跨領域學習者，他深知台灣學生學習法文的痛點，能以邏輯清晰、易於理解的技巧帶領學生突破關卡。</p>
         </div>
     </section>
 
     <section id="testimonials">
         <h2>學員見證 💬</h2>
-        <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-bottom: 4px solid var(--fr-red); margin-bottom: 1.5rem;">
-            <p style="font-style: italic; color: #475569; line-height: 1.8;">「本週學了數字與購物常用單字與片語。法文數字 97 竟然是 4x20+10+7！ 規則雖然獨特但了解後發現是有邏輯的。實戰對話對之後出國幫助很大，Paul 的課程真的會讓人上癮！」</p>
-            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員</p>
+        <div class="testimonial-item">
+            <p>「本週學了數字與購物常用單字。法文數字 97 竟然是 4x20+10+7！規則雖然獨特但了解邏輯後發現非常有道理。實戰對話對之後出國幫助很大，Paul 的課程真的會讓人上癮！」</p>
+            <p style="font-size: 0.9rem; color: var(--fr-blue); margin-top: 1.2rem; font-weight: bold; text-align: right;">— 清大共學計畫學員 A</p>
         </div>
-        <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-bottom: 4px solid var(--fr-red);">
-            <p style="font-style: italic; color: #475569; line-height: 1.8;">「點餐與數數課程非常有趣且實用！發音雖然很有挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得一試。」</p>
-            <p style="font-size: 0.85rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold;">— 清大共學計畫學員</p>
+        <div class="testimonial-item" style="border-right-color: var(--fr-blue);">
+            <p>「點餐與數數課程非常有趣且實用！發音雖然很有挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得一試。」</p>
+            <p style="font-size: 0.9rem; color: var(--fr-red); margin-top: 1.2rem; font-weight: bold; text-align: right;">— 清大共學計畫學員 B</p>
         </div>
     </section>
 
@@ -226,9 +289,4 @@
     </section>
 
     <div class="footer">
-        <p>&copy; 2026 Paul Tai - 戴士保 | 專業、邏輯與溫度的法文教室</p>
-    </div>
-</div>
-
-</body>
-</html>
+        <p>&copy; 2026 Paul Tai - 戴士保 | 專業
