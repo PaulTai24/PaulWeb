@@ -306,23 +306,38 @@
     </section>
 
     <style>
-    /* --- 重新找回精緻感的見證區樣式 --- */
+    /* --- 優化見證區排版：確保對稱與大小一致 --- */
     .testimonial-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 自動適應寬度，不擠壓 */
+        /* 固定 3 欄，如果寬度不足則自動換行並保持靠左對齊 */
+        grid-template-columns: repeat(3, 1fr); 
         gap: 1.5rem;
         margin-top: 2.5rem;
     }
 
+    /* 針對平板與手機的響應式調整 */
+    @media (max-width: 900px) {
+        .testimonial-container {
+            grid-template-columns: repeat(2, 1fr); /* 平板顯示 2 欄 */
+        }
+    }
+
+    @media (max-width: 650px) {
+        .testimonial-container {
+            grid-template-columns: 1fr; /* 手機顯示 1 欄 */
+        }
+    }
+
     .testimonial-card {
         background: white;
-        padding: 2.5rem;
+        padding: 2.2rem;
         border-radius: 24px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        border-right: 5px solid #eee; /* 側邊美化 */
+        border-right: 5px solid #eee;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        /* 確保三個卡片即使文字長短不同，高度也會自動對齊 */
+        height: 100%; 
         transition: all 0.3s ease;
         position: relative;
     }
