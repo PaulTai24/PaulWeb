@@ -273,10 +273,10 @@
     <section id="about-paul">
         <h2>關於 Paul 💡</h2>
         <div style="line-height: 1.9; font-size: 1.1rem; color: #334155;">
-            畢業於<strong>輔仁大學英文系</strong>，目前於知名資通訊公司擔任工程師。Paul 是一位對語言極具熱情的實踐者，持有法文高階 <strong>DALF C1</strong>檢定證書，並曾赴法國 <strong>EDHEC 高等商學院</strong> 進行交換學習。
+            畢業於輔仁大學英文系，目前於知名資通訊公司擔任工程師。Paul 是一位對語言極具熱情的實踐者，持有法文高階 <strong>DALF C1</strong>檢定證書，並曾赴法國 <strong>EDHEC 高等商學院</strong> 進行交換學習。
             <br><br>
             Paul具備豐富的實務經驗，曾擔任法國經典音樂劇《羅密歐與茱麗葉》團隊的<strong>現場技術口譯</strong>，並服務國際學校學生，擔任法文</strong>一對一陪讀家教</strong>。
-            <br><br>Paul在教學領域累積了深厚實績，曾擔任清華大學共學計畫法文老師，帶領跨國籍學員入門；<br>目前亦為法文演講會 的活躍成員，持續精進法文公眾表達能力。
+            <br><br>Paul在教學領域持續深耕，曾擔任清華大學共學計畫法文老師，帶領跨國籍學員入門；<br>目前亦為法文演講會 的活躍成員，持續精進法文公眾表達能力。
             <br><br>Paul 充滿熱忱且極具耐心。身為跨領域學習者，他深知台灣學生學習法文的痛點，擅長以邏輯清晰、易於理解的方式帶領學生突破關卡。
         </div>
     </section>
@@ -305,17 +305,85 @@
         </div>
     </section>
 
-    <section id="testimonials">
-        <h2>學員見證 💬</h2>
-        <div style="background: white; padding: 2rem; border-radius: 20px; border-right: 4px solid var(--fr-red); margin-bottom: 2rem;">
-            <p style="font-style: italic; color: #475569; line-height: 1.8;">「本週學了數字與購物常用單字。法文數字 97 竟然是 4x20+10+7！規則雖然奇特但了解後發現是有邏輯的。Paul 的課程真的會讓人上癮！」</p>
-            <p style="font-size: 0.9rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold; text-align: right;">— 清大共學計畫學員</p>
+    <style>
+    /* --- 重新找回精緻感的見證區樣式 --- */
+    .testimonial-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 自動適應寬度，不擠壓 */
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+    }
+
+    .testimonial-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border-right: 5px solid #eee; /* 側邊美化 */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 35, 149, 0.1);
+    }
+
+    .testimonial-card p {
+        font-style: italic;
+        color: #475569;
+        line-height: 1.8;
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .testimonial-card b {
+        color: var(--fr-red);
+    }
+
+    .author-info {
+        font-size: 0.9rem;
+        color: var(--fr-blue);
+        font-weight: 700;
+        text-align: right;
+        letter-spacing: 1px;
+    }
+
+    /* 裝飾用的引號圖示 */
+    .testimonial-card::before {
+        content: '\f10d';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        color: rgba(0, 35, 149, 0.05);
+        font-size: 2rem;
+    }
+</style>
+
+<section id="testimonials">
+    <h2>學員見證 💬</h2>
+    <div class="testimonial-container">
+        <div class="testimonial-card" style="border-right-color: var(--fr-red);">
+            <p>「本週學了數字與購物常用單字。法文數字 97 竟然是 4x20+10+7！規則雖然獨特但了解後發現是有邏輯的。<b>Paul 的課程真的會讓人上癮！</b>」</p>
+            <div class="author-info">— 清大共學計畫學員 A</div>
         </div>
-        <div style="background: white; padding: 2rem; border-radius: 20px; border-right: 4px solid var(--fr-blue);">
-            <p style="font-style: italic; color: #475569; line-height: 1.8;">「點餐與數數課程非常有趣且實用！發音雖然很有挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得。」</p>
-            <p style="font-size: 0.9rem; color: var(--fr-blue); margin-top: 1rem; font-weight: bold; text-align: right;">— 清大共學計畫學員</p>
+
+        <div class="testimonial-card" style="border-right-color: var(--fr-blue);">
+            <p>「點餐與數數課程非常有趣且實用！發音雖然很有挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得一試。」</p>
+            <div class="author-info">— 清大共學計畫學員 B</div>
         </div>
-    </section>
+
+        <div class="testimonial-card" style="border-right-color: #facc15;">
+            <p>「法文真的像大家說的那麼難嗎？<b>不，其實更難！</b>光是數字就讓人很頭痛，幸好老師用生動且清晰的方式解釋得很清楚。很期待未來能踏上法國土地！」</p>
+            <div class="author-info">— 清華共學圈圈學員 C</div>
+        </div>
+    </div>
+</section>
 
     <section id="contact" style="text-align: center;">
         <h2>開啟你的法文篇章 ✉️</h2>
