@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Paul 戴士保 | 法文線上教室</title>
+    <meta name="description" content="由具備資通訊背景、DALF C1 認證的 Paul 帶領，提供邏輯清晰、實戰導向的法文 A1-B2 課程。曾任清大共學計畫導師，陪你跨越學習痛點。">
+    <meta property="og:title" content="Paul 戴士保 | 法文線上教室">
+    <meta property="og:description" content="邏輯與熱忱並進，從零基礎入門到中級進階，開啟你的法文學習新篇章。">
+    <meta property="og:image" content="profile.jpg">
+    <meta property="og:type" content="website">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         :root {
             --fr-blue: #002395;
@@ -24,11 +32,13 @@
 
         body {
             font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 400; /* 內文字重 */
             color: var(--text-main);
             background: linear-gradient(-45deg, #eef2f7, #ffffff, #fff1f2, #eef6ff);
             background-size: 400% 400%;
             animation: gradientBG 12s ease infinite;
             min-height: 100vh;
+            line-height: 1.8;
         }
 
         @keyframes gradientBG {
@@ -55,20 +65,19 @@
             animation: fadeInUp 1s ease-out;
         }
 
-        /* --- 個人照片區 (微交互：滑過縮放) --- */
+        /* --- 個人照片區優化 --- */
         .profile-wrapper {
-            width: 220px;
-            height: 220px;
+            width: 240px; /* 寬度微調至 240px */
+            height: 240px;
             margin: 0 auto 2.5rem;
             border-radius: 50%;
             padding: 8px;
             background: linear-gradient(135deg, var(--fr-blue), var(--fr-white), var(--fr-red));
-            box-shadow: 0 20px 40px var(--accent-glow);
+            box-shadow: 0 20px 45px var(--accent-glow);
             overflow: hidden;
             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition-delay: 0.2s; /* 增加動畫延遲感 */
         }
-
-        .profile-wrapper:hover { transform: scale(1.05) rotate(2deg); }
 
         .profile-pic {
             width: 100%;
@@ -83,75 +92,49 @@
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-weight: 700; /* 強調標題粗細 */
+            font-size: 3.8rem;
             color: var(--fr-blue);
             margin-bottom: 0.5rem;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
         }
 
-        .name-ch { font-size: 1.6rem; color: var(--text-main); letter-spacing: 6px; display: block; margin: 0.5rem 0 1.5rem; }
+        .name-ch { 
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem; 
+            color: var(--text-main); 
+            letter-spacing: 8px; 
+            display: block; 
+            margin: 0.5rem 0 1.5rem; 
+        }
 
         .tagline {
             font-size: 1.1rem;
             color: var(--text-sub);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             font-weight: 300;
             text-transform: uppercase;
             margin-bottom: 2rem;
         }
 
-        /* --- 置頂 CTA 按鈕 (微交互：呼吸感與位移) --- */
         .cta-btn {
             display: inline-block;
             background: var(--fr-red);
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 1.1rem 2.8rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 1.1rem;
             box-shadow: 0 10px 25px rgba(237, 41, 57, 0.3);
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(237, 41, 57, 0.3); }
-            50% { transform: scale(1.03); box-shadow: 0 15px 35px rgba(237, 41, 57, 0.4); }
-            100% { transform: scale(1); box-shadow: 0 10px 25px rgba(237, 41, 57, 0.3); }
-        }
-
-        .cta-btn:hover {
-            background: var(--fr-blue);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 35, 149, 0.3);
-            animation: none;
-        }
-
-        /* --- 語言標籤 (微交互：浮現感) --- */
-        .language-tags {
-            margin-top: 2.5rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .lang-tag {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 0.5rem 1.4rem;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .lang-tag:hover {
-            background: white;
-            transform: scale(1.1);
-            color: var(--fr-blue);
-            box-shadow: 0 5px 15px var(--accent-glow);
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         section {
@@ -162,12 +145,16 @@
             margin-bottom: 3.5rem;
             border: 1px solid var(--glass-border);
             animation: fadeInUp 1s ease-out both;
-            transition: border 0.3s ease;
         }
 
-        section:hover { border: 1px solid var(--fr-blue); }
+        /* 增加動畫層次感：延遲每個區塊的浮現時間 */
+        section:nth-of-type(1) { animation-delay: 0.4s; }
+        section:nth-of-type(2) { animation-delay: 0.6s; }
+        section:nth-of-type(3) { animation-delay: 0.8s; }
 
         h2 {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 700;
             font-size: 2rem;
             color: var(--fr-blue);
             margin-bottom: 2rem;
@@ -176,173 +163,64 @@
             gap: 15px;
         }
 
-        h2::before {
-            content: ''; width: 5px; height: 28px; background: var(--fr-red); border-radius: 10px;
-        }
+        .social-icon i { font-size: 2.5rem; color: var(--fr-blue); }
 
-        /* --- 課程分級區塊 --- */
-        .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .level-card {
-            background: rgba(255, 255, 255, 0.6);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .level-card:hover {
-            background: white;
-            border: 1px solid #e2e8f0;
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .level-card h3 {
-            color: var(--fr-red);
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .level-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .level-card li {
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .level-card li i { color: var(--fr-blue); font-size: 0.9rem; }
-
-        /* --- 社交圖示 (微交互：顏色與旋轉) --- */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            margin-top: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .social-icon {
-            text-decoration: none;
-            color: var(--text-main);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-
-        .social-icon i {
-            font-size: 2.5rem;
-            color: var(--fr-blue);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .social-icon:hover i { transform: scale(1.3) rotate(10deg); color: var(--fr-red); }
-        .social-icon:hover { transform: translateY(-8px); }
-
-        .footer { text-align: center; padding: 5rem 1rem; color: var(--text-sub); }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            section { padding: 2rem; }
-        }
+        .footer { text-align: center; padding: 5rem 1rem; color: var(--text-sub); font-weight: 300; }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <header>
-        <div class="profile-wrapper">
-            <img src="profile.jpg" alt="Paul 戴士保" class="profile-pic">
-        </div>
-        <h1>Paul</h1>
-        <span class="name-ch">戴士保</span>
-        <p class="tagline">Logic & Passion | 法文線上教室</p>
-        
-        <a href="#contact" class="cta-btn">立即預約試聽課程 ✉️</a>
-
-        <div class="language-tags">
-            <div class="lang-tag">🇹🇼 中文 (母語)</div>
-            <div class="lang-tag">🇫🇷 法文 (DALF C1)</div>
-            <div class="lang-tag">🇺🇸 英文 (TOEIC 945)</div>
-            <div class="lang-tag">🇪🇸 西文 (討論會創辦人)</div>
-        </div>
-    </header>
-
-    <section id="about-paul">
-        <h2>關於 Paul 💡</h2>
-        <div style="line-height: 1.9; font-size: 1.1rem; color: #334155;">
-            畢業於<strong>輔仁大學英文系</strong>，目前於知名資通訊公司擔任工程師。Paul 是一位對語言極具熱情的實踐者，持有法文高階 <strong>DALF C1</strong>檢定證書，並曾赴法國 <strong>EDHEC 高等商學院</strong> 進行交換學習。現亦為<strong>法語演講會</strong>成員、持續精進演說能力。
-            <br><br>
-            他具備豐富的實務經驗，曾擔任法國經典音樂劇《羅密歐與茱麗葉》團隊的<strong>現場技術口譯</strong>，並長期服務歐洲國際學校學生，擔任法文<strong>一對一陪讀導師</strong>。<br><br>Paul 充滿熱忱且極具耐心。身為跨領域學習者，他深知台灣學生學習法文的痛點，能以邏輯清晰、易於理解的技巧帶領學生突破關卡。
-        </div>
-    </section>
-
-    <section id="levels">
-        <h2>課程分級導覽 📚</h2>
-        <div class="course-grid">
-            <div class="level-card">
-                <h3>基礎紮根 A1-A2 <span style="font-size: 0.8rem; background: #fee2e2; padding: 4px 10px; border-radius: 10px;">入門</span></h3>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> 精準法文發音系統建立</li>
-                    <li><i class="fa-solid fa-check"></i> 克服語法難關</li>
-                    <li><i class="fa-solid fa-check"></i> 拆解文法邏輯</li>
-                    <li><i class="fa-solid fa-check"></i> 購物、點餐等日常生活對話</li>
-                </ul>
+    <div class="container">
+        <header>
+            <div class="profile-wrapper">
+                <img src="profile.jpg" alt="Paul 戴士保" class="profile-pic">
             </div>
-            <div class="level-card">
-                <h3>進階強化 B1-B2 <span style="font-size: 0.8rem; background: #dcfce7; padding: 4px 10px; border-radius: 10px;">進階</span></h3>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> 提升口說流暢度與應變力</li>
-                    <li><i class="fa-solid fa-check"></i> 議題討論與時事探討</li>
-                    <li><i class="fa-solid fa-check"></i> DELF 檢定備考與修正</li>
-                    <li><i class="fa-solid fa-check"></i> 法文寫作與表達優化</li>
-                </ul>
+            <h1>Paul</h1>
+            <span class="name-ch">戴士保</span>
+            <p class="tagline">Logic & Passion | 法文線上教室</p>
+            <a href="#contact" class="cta-btn">立即預約試聽課程 ✉️</a>
+            <div class="language-tags">
+                <div class="lang-tag">🇹🇼 中文 (母語)</div>
+                <div class="lang-tag">🇫🇷 法文 (DALF C1)</div>
+                <div class="lang-tag">🇺🇸 英文 (TOEIC 945)</div>
+                <div class="lang-tag">🇪🇸 西文 (討論會創辦人)</div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <section id="testimonials">
-        <h2>學員見證 💬</h2>
-        <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); border-right: 4px solid var(--fr-red); margin-bottom: 2rem;">
-            <p style="font-style: italic; color: #475569; line-height: 1.8;">「本週學了數字與購物常用單字。法文數字 97 竟然是 4x20+10+7！規則雖然獨特但了解後發現是有邏輯的。實戰對話對之後出國幫助很大，Paul 的課程真的會讓人上癮！」</p>
-            <p style="font-size: 0.9rem; color: var(--fr-blue); margin-top: 1.2rem; font-weight: bold; text-align: right;">— 清大共學計畫學員</p>
-        </div>
-        <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); border-right: 4px solid var(--fr-blue);">
-            <p style="font-style: italic; color: #475569; line-height: 1.8;">「點餐與數數課程非常有趣且實用！發音雖然很有挑戰性，但在 Paul 的帶領下學到了許多技巧，這堂課非常值得一試。」</p>
-            <p style="font-size: 0.9rem; color: var(--fr-blue); margin-top: 1.2rem; font-weight: bold; text-align: right;">— 清大共學計畫學員</p>
-        </div>
-    </section>
+        <section id="about-paul">
+            <h2>關於 Paul 💡</h2>
+            <div class="intro-text" style="font-weight: 400;">
+                畢業於<strong>輔仁大學英文系</strong>，目前於知名<strong>資通訊公司</strong>擔任工程師。Paul 持有法文高階認證 <strong>DALF C1</strong>，並曾遠赴法國 <strong>EDHEC 高等商學院</strong> 進行交換學習。
+                <br><br>
+                他曾擔任<strong>清華大學共學計畫</strong>法文老師，並為<strong>法文演講會 (French Toastmasters)</strong> 成員。具備豐富的口譯與國際學校導師經驗，致力於以邏輯清晰的方式引導學生突破法文瓶頸。
+            </div>
+        </section>
 
-    <section id="contact" style="text-align: center;">
-        <h2>開啟你的法文篇章 ✉️</h2>
-        <div class="social-links">
-            <a href="mailto:hua29778@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
-            <a href="https://line.me/ti/p/~paulisthebest" target="_blank" class="social-icon"><i class="fa-brands fa-line"></i><span>LINE</span></a>
-            <a href="https://www.facebook.com/shihpao.tai" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fa-brands fa-facebook"></i><span>Facebook</span></a>
-            <a href="https://www.instagram.com/xbpaulxb/" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
-        </div>
-    </section>
+        <section id="levels">
+            <h2>精準分級課程 📚</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div style="background: rgba(255,255,255,0.6); padding: 2rem; border-radius: 20px;">
+                    <h3 style="color: var(--fr-red); margin-bottom: 1rem;">基礎實戰 A1-A2</h3>
+                    <p style="font-size: 0.95rem;">適合零基礎或初學者，重點在於建立正確發音與生活實戰場景。</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.6); padding: 2rem; border-radius: 20px;">
+                    <h3 style="color: var(--fr-blue); margin-bottom: 1rem;">深度強化 B1-B2</h3>
+                    <p style="font-size: 0.95rem;">針對有基礎者，強化口說流暢度、邏輯論述與檢定備考。</p>
+                </div>
+            </div>
+        </section>
 
-    <div class="footer">
-        <p>&copy; 2026 Paul Tai - 戴士保 | 專業、邏輯與溫暖的法文教室</p>
+        <section id="contact" style="text-align: center;">
+            <h2>開啟你的法文篇章 ✉️</h2>
+            <div style="display: flex; justify-content: center; gap: 2.5rem; margin-top: 2rem; flex-wrap: wrap;">
+                <a href="mailto:hua29778@gmail.com" style="text-decoration: none; color: var(--text-main);"><i class="fa-solid fa-envelope" style="font-size: 2.5rem; color: var(--fr-blue);"></i><br>Email</a>
+                <a href="https://line.me/ti/p/~paulisthebest" target="_blank" style="text-decoration: none; color: var(--text-main);"><i class="fa-brands fa-line" style="font-size: 2.5rem; color: var(--fr-blue);"></i><br>LINE</a>
+                <a href="https://www.facebook.com/shihpao.tai" target="_blank" style="text-decoration: none; color: var(--text-main);"><i class="fa-brands fa-facebook" style="font-size: 2.5rem; color: var(--fr-blue);"></i><br>Facebook</a>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>&copy; 2026 Paul Tai - 戴士保 | 專業、邏輯與溫度的法文教室</p>
+        </div>
     </div>
-</div>
-
 </body>
 </html>
